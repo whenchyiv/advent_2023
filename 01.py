@@ -1,3 +1,6 @@
+from loguru import logger
+import re
+
 input = """two934seven1
 8825eightknfv
 sevenoneqbfzntsix55
@@ -1000,3 +1003,12 @@ sixgtxr2fourrdkjg
 fivebxsevensixone872dlx"""
 
 inputs = input.split("\n")
+
+numbers = [
+    re.findall(r"\d", i) for i in inputs
+]
+calibration_values = [
+    int(f"{c[0]}{c[-1]}") if len(c) > 1 else int(f"{c[0]}{c[0]}") for c in numbers
+]
+
+logger.info(f"\n❄️ Calibration value: {sum(calibration_values)} ❄️")
