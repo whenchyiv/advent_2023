@@ -25,9 +25,9 @@ if __name__ == '__main__':
             # (.index() only gets the first index).
             r = r.replace(r[num_start:num_end], ''.join('.'*len(n)), 1)
             if i > 0:
-                search_space = input_list[i-1][num_start+search_start:num_end+search_end] + ' ' + search_space
+                search_space = input_list[i-1][num_start+search_start:num_end+search_end] + search_space
             if i + 1 < len(input_list):
-                search_space += ' ' + input_list[i+1][num_start+search_start:num_end+search_end]
+                search_space += input_list[i+1][num_start+search_start:num_end+search_end]
             for c in search_space:
                 if is_special_char(c):
                     part_numbers.append(int(n))
